@@ -3,7 +3,7 @@ angular
   .controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
 
     $scope.search = {
-      query: 'Asus',
+      query: '',
       hits: []
     };
     var client = algolia.Client('A9EJIIWSXQ', '0ddfdbe577785a0697254cec4e2e7197');
@@ -19,6 +19,7 @@ angular
       });
 
     $scope.$watch('search.query', function() {
+      console.log('hiiii')
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
           console.log(content);

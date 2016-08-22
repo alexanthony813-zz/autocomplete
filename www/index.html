@@ -8,13 +8,16 @@
 
 <body>
   <p>Search</p>
+
   <div ng-app="myapp" ng-controller="SearchCtrl">
-    {{ search.query }}
+  <input type="text" ng-model="search.query" />
+    <h2>{{ search.query }}</h2>
 
     <div id="hits">
       <div class="hit container" ng-repeat="hit in search.hits">
         <img src="{{hit.image}}"/>
-        <h4>{{hit.name}}</h4>
+        <h4><a target="_blank" href="{{hit.url}}">{{hit.name}}</a></h4>
+        <p>$ {{hit.price}} Free Shipping: {{hit.free_shipping}}</p>
       </div>
     </div>
   </div>
