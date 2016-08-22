@@ -19,7 +19,6 @@ angular
       });
 
     $scope.$watch('search.query', function() {
-      console.log('hiiii')
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
           console.log(content);
@@ -28,5 +27,22 @@ angular
         }, function searchFailure(err) {
           console.log(err);
       });
+    });
+
+    //
+    autocomplete('#search-input', {hint: false}, [
+    {
+      source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
+      displayKey: 'name',
+      templates: {
+        suggestion: function(suggestion) {
+          return suggestion.name;
+        }
+      }
+    }
+    ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+      console.log(suggestion.name)
+      $scope.search.query = suggestion.name;
+
     });
   }]);
