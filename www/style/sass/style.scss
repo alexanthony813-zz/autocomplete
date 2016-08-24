@@ -1,9 +1,12 @@
 $font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+$primary-color: #ffffff;
+$bg-color: #2c3e50;
+$hover-color: #16a085;
 
 body{
   font: 100% $font-stack;
   color: $primary-color;
+  background-color: $bg-color;
 }
 
 #search {
@@ -13,4 +16,13 @@ body{
 
 #hits{
   overflow: hidden;
+  background: white;
+
+  div{
+    margin: 0;
+    padding: 0;
+    color: $bg-color;
+  }
+
+
 }

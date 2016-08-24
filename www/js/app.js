@@ -11,11 +11,9 @@ angular
     var index = client.initIndex('best_buy');
 
     $scope.update = function(){
-      console.log(document.getElementById("search-input").value)
       query = document.getElementById("search-input").value;
       index.search(query)
         .then(function searchSuccess(content) {
-          console.log(content);
           // add content of search results to scope for display in view
           $scope.search.hits = content.hits;
         }, function searchFailure(err) {
